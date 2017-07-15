@@ -9,10 +9,12 @@
 　　证书格式方面，迁就 JavaScript，在 Objective-C 和 Java 端增加对相应格式的处理。
 　　
 #### 一、JavaScript
+
 **主要职责：**作为 Client 在 Web 页面使用，使用公钥对数据进行加密。
 　　我们使用了 JavaScript 的 RSA 库 [JSEncrypt](http://travistidwell.com/jsencrypt/)。由于 JS 对二进制数据的支持不太方便，所以 JSEncrypt 对于公钥和私钥的支持，都使用了 PEM 格式。
 
 #### 二、Objective-C
+
 **主要职责：**作为 Client 在 iOS 或 macOS 设备上使用，使用公钥对数据进行加密。
 　　其实在 Apple 的 Core Foundation 中，对 RSA 有比较标准的支持，但是不知道什么原因，不支持 PEM 格式密钥的处理。由于 JS 端处理能力有限，所以最后采用的是在 Objective-C 端集成 [OpenSSL](https://www.openssl.org/) 的方式来处理。
 　　
