@@ -18,7 +18,7 @@
 **主要职责：** 作为 Client 在 iOS 或 macOS 设备上使用，使用公钥对数据进行加密。
 
 　　其实在 Apple 的 Core Foundation 中，对 RSA 有比较标准的支持，但是不知道什么原因，不支持 PEM 格式密钥的处理。由于 JS 端处理能力有限，所以最后采用的是在 Objective-C 端集成 [OpenSSL](https://www.openssl.org/) 的方式来处理。
-　　
+
 **参考内容：**
 - 对于 Core Foundation 标准库调用的方式参考了[《iOS中使用RSA加密》](http://www.jianshu.com/p/74a796ec5038)
 - 对于集成 OpenSSL 的方案参考了[《iOS RSA加解密签名和验证》](https://github.com/HustBroventure/iOSRSAHandler)，他的代码在 [iOSRSAHandler](https://github.com/HustBroventure/iOSRSAHandler)。这份代码是对于 OpenSSL 中 C 函数的封装，核心算法部分没什么问题，但是对外提供的接口以及中文处理方面，细节有些问题，做了些调整。
@@ -28,5 +28,6 @@
 - Android：作为 Android Client 使用公钥对数据进行加密。 
 - JavaEE Server：作为 Server 使用私钥对数据进行解密。  
 
+**参考内容：**
 　　Java 中对于 RSA 也有比较良好的支持，主体代码参考了[《RSA Encryption Example》](https://javadigest.wordpress.com/2012/08/26/rsa-encryption-example/)。但是这份代码也是不支持读取 PEM 格式的私钥，所以参考了 [Stack Overflow](https://stackoverflow.com/questions/11787571/how-to-read-pem-file-to-get-private-and-public-key)。
 
