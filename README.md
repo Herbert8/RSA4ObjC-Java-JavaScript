@@ -8,7 +8,17 @@
 
 #### 整体思路
 　　证书格式方面，迁就 JavaScript，在 Objective-C 和 Java 端增加对相应格式的处理。
-　　
+
+#### 准备工作
+在终端中，使用 OpenSSL 生成需要的公钥、私钥对
+```bash
+# 生成 PEM 格式的私钥
+$ openssl genrsa -out rsa_1024_priv.pem 1024
+
+# 根据私钥生成对应 PEM 格式的公钥
+$ openssl rsa -pubout -in rsa_1024_priv.pem -out rsa_1024_pub.pem
+```
+
 #### 一、JavaScript
 **主要职责：** 作为 Client 在 Web 页面使用，使用公钥对数据进行加密。
 
